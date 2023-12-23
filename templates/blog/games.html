@@ -1,0 +1,96 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla</title>
+    
+    <style>
+        .card {
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px;
+            text-align: center;
+        }
+        
+        .card img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        
+        .card h1 {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        
+        .card p {
+            font-size: 16px;
+            margin-top: 5px;
+        }
+        
+        ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        .logout-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+          .chat{
+            position: fixed;
+            top: 10px;
+            right: 980px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+          
+          
+    </style>
+
+</head>
+
+<body>
+    <a href="{% url 'logout' %}" class="logout-button">Cerrar sesión</a>
+    <a href="/chat/?texto=" class="chat">Chat-Steam</a>
+
+    {% if  weather == "sunny" or weather == "clear sky"%}
+        <h2>El Clima esta agradable para salir</h2>
+    {% else %}
+        <h2>El clima esta muy mal deberias quedarte a jugar</h2>
+    {% endif %}
+
+    <h1>Buscardor de juegos</h1>
+    <form action="" method="GET">
+        <input type="text" name="buscar" placeholder="Buscar juego">
+        <input type="submit" value="Buscar">
+    </form>
+    
+    <ul>
+        {% for game in games %}
+        <div class="card">
+            <img src="{{ game.img }}" alt="{{ game.name }}">
+            <h1>{{ game.name }}</h1>
+            <p>{{ game.price }}</p>
+        </div>
+        {% endfor %}
+    </ul>
+
+    <div style="text-align: center">
+    <iframe src="{{video}}" width="700" height="400" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+</body>
+</html>

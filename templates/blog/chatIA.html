@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Consejero de Steam</title>
+    <style>
+        .juegos{
+            position: fixed;
+            top: 10px;
+            right: 1000px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+    </style>
+</head>
+<body>
+    <h1>Consejero de Steam</h1>
+    <form action="" method="GET">
+        <input type="text" name="texto" placeholder="¿Qué deseas preguntar o solicitar?">
+        <input type="submit" value="Enviar">
+    </form>
+
+    {% if texto != ""  %}
+    <div id="respuesta">
+        <h1>{{respuesta}}</h1>
+    </div>
+    {% else %}
+    <div id="respuesta">
+        <h1>{{respuesta}}</h1>
+    </div>
+    {% endif %}
+
+    <a href="/Games/?buscar=" class="juegos">Ir a juegos</a>
+
+</body>
+</html>

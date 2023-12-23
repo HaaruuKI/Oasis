@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla</title>
+</head>
+
+<body>
+    <form action="" method="GET">
+        <input type="text" name="buscar" placeholder="Buscar juego">
+        <input type="submit" value="Buscar">
+    </form>
+    
+    <ul>
+        {% for game in games %}
+        <div class="card">
+            <img src="{{ game.img }}" alt="{{ game.name }}">
+            <h1>{{ game.name }}</h1>
+            <p>{{ game.price }}</p>
+        </div>
+        {% endfor %}
+    </ul>
+</body>
+</html>
